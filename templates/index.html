@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Food Nutrition Analyzer</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVBAR
+    ========================================== -->
+
+    <nav class="navbar">
+
+        <!-- Logo -->
+
+        <div class="logo">
+            🥗 NutriScan
+        </div>
+
+
+        <!-- Navigation Links -->
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="#analyze">Analyze</a>
+            </li>
+
+            <li>
+                <a href="#features">Features</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================================
+         HERO SECTION
+    ========================================== -->
+
+    <section class="hero" id="analyze">
+
+        <div class="hero-content">
+
+
+            <!-- Main Heading -->
+
+            <h1>
+
+                Understand Your Food.
+
+                <span>
+                    Improve Your Health.
+                </span>
+
+            </h1>
+
+
+            <!-- Description -->
+
+            <p>
+
+                Analyze your food and discover
+                calories, protein, carbohydrates,
+                fats, fiber and more.
+
+            </p>
+
+
+
+            <!-- =================================
+                 FOOD SEARCH
+            ================================== -->
+
+            <form
+    class="search-box"
+    action="/analyze"
+    method="POST">
+
+    <input
+        type="text"
+        name="food"
+        placeholder="Search food..."
+        required
+    >
+
+    <button
+        type="submit"
+        class="analyze-btn">
+
+        Analyze Food
+
+    </button>
+
+</form>
+
+
+
+            <!-- =================================
+                 IMAGE UPLOAD
+            ================================== -->
+
+            <div class="upload-section">
+
+                <label class="upload-btn">
+
+                    📷 Upload Food Image
+
+                    <input
+                        type="file"
+                        accept="image/*"
+                        id="foodImage"
+                    >
+
+                </label>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FEATURES SECTION
+    ========================================== -->
+
+    <section
+        class="features"
+        id="features">
+
+
+        <h2>
+            What You Can Analyze
+        </h2>
+
+
+
+        <div class="feature-container">
+
+
+            <!-- Calories -->
+
+            <div class="feature-card">
+
+                <div>
+                    🔥
+                </div>
+
+                <h3>
+                    Calories
+                </h3>
+
+                <p>
+
+                    Understand the energy
+                    provided by your food.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Protein -->
+
+            <div class="feature-card">
+
+                <div>
+                    💪
+                </div>
+
+                <h3>
+                    Protein
+                </h3>
+
+                <p>
+
+                    Track your daily
+                    protein intake.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Healthy Fats -->
+
+            <div class="feature-card">
+
+                <div>
+                    🥑
+                </div>
+
+                <h3>
+                    Healthy Fats
+                </h3>
+
+                <p>
+
+                    Understand the fat
+                    content of your food.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- Fiber -->
+
+            <div class="feature-card">
+
+                <div>
+                    🌾
+                </div>
+
+                <h3>
+                    Fiber
+                </h3>
+
+                <p>
+
+                    Monitor your
+                    dietary fiber intake.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         ABOUT SECTION
+    ========================================== -->
+
+    <section
+        class="features"
+        id="about">
+
+        <h2>
+            About NutriScan
+        </h2>
+
+        <p>
+
+            Smart Food Nutrition Analyzer helps
+            users understand the nutritional value
+            of the food they eat.
+
+        </p>
+
+    </section>
+
+
+
+</body>
+
+</html>

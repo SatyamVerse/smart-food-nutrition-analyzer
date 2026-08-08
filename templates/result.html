@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ food.name }} Nutrition</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🥗 NutriScan
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                {{ food.name }}
+            </h1>
+
+            <p>
+                Serving: {{ food.serving }}
+            </p>
+
+
+            <div class="feature-container">
+
+
+                <div class="feature-card">
+
+                    <div>🔥</div>
+
+                    <h3>
+                        Calories
+                    </h3>
+
+                    <p>
+                        {{ food.calories }} kcal
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div>💪</div>
+
+                    <h3>
+                        Protein
+                    </h3>
+
+                    <p>
+                        {{ food.protein }} g
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div>🍞</div>
+
+                    <h3>
+                        Carbohydrates
+                    </h3>
+
+                    <p>
+                        {{ food.carbohydrates }} g
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div>🥑</div>
+
+                    <h3>
+                        Fat
+                    </h3>
+
+                    <p>
+                        {{ food.fat }} g
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div>🌾</div>
+
+                    <h3>
+                        Fiber
+                    </h3>
+
+                    <p>
+                        {{ food.fiber }} g
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div>🍬</div>
+
+                    <h3>
+                        Sugar
+                    </h3>
+
+                    <p>
+                        {{ food.sugar }} g
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div>🧂</div>
+
+                    <h3>
+                        Sodium
+                    </h3>
+
+                    <p>
+                        {{ food.sodium }} mg
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</body>
+
+</html>
