@@ -17,7 +17,6 @@ app = Flask(__name__)
 with open("data/foods.json", "r") as file:
     foods = json.load(file)
 
-
 # =========================================================
 # FOOD LABEL MAPPING
 # =========================================================
