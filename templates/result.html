@@ -19,6 +19,10 @@
 <body>
 
 
+    <!-- ==============================
+         NAVBAR
+    =============================== -->
+
     <nav class="navbar">
 
         <div class="logo">
@@ -36,21 +40,67 @@
     </nav>
 
 
+
+    <!-- ==============================
+         HERO / RESULT SECTION
+    =============================== -->
+
     <section class="hero">
 
         <div class="hero-content">
 
+
+            <!-- FOOD NAME -->
+
             <h1>
                 {{ food.name }}
             </h1>
+
 
             <p>
                 Serving: {{ food.serving }}
             </p>
 
 
+
+            <!-- ==============================
+                 NUTRITION SCORE
+            =============================== -->
+
+            <div class="score-card">
+
+                <div class="score-icon">
+                    ⭐
+                </div>
+
+                <div class="score-content">
+
+                    <h2>
+                        Nutrition Score
+                    </h2>
+
+                    <div class="score-number">
+                        {{ nutrition_score }}/100
+                    </div>
+
+                    <p class="score-label">
+                        {{ score_label }}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==============================
+                 NUTRITION INFORMATION
+            =============================== -->
+
             <div class="feature-container">
 
+
+                <!-- CALORIES -->
 
                 <div class="feature-card">
 
@@ -67,6 +117,9 @@
                 </div>
 
 
+
+                <!-- PROTEIN -->
+
                 <div class="feature-card">
 
                     <div>💪</div>
@@ -81,6 +134,9 @@
 
                 </div>
 
+
+
+                <!-- CARBOHYDRATES -->
 
                 <div class="feature-card">
 
@@ -97,6 +153,9 @@
                 </div>
 
 
+
+                <!-- FAT -->
+
                 <div class="feature-card">
 
                     <div>🥑</div>
@@ -111,6 +170,9 @@
 
                 </div>
 
+
+
+                <!-- FIBER -->
 
                 <div class="feature-card">
 
@@ -127,6 +189,9 @@
                 </div>
 
 
+
+                <!-- SUGAR -->
+
                 <div class="feature-card">
 
                     <div>🍬</div>
@@ -141,6 +206,9 @@
 
                 </div>
 
+
+
+                <!-- SODIUM -->
 
                 <div class="feature-card">
 
@@ -159,9 +227,25 @@
 
             </div>
 
+
+
+            <!-- ==============================
+                 ANALYZE ANOTHER FOOD
+            =============================== -->
+
+            <div class="result-actions">
+
+                <a href="/" class="analyze-again">
+                    🔍 Analyze Another Food
+                </a>
+
+            </div>
+
+
         </div>
 
     </section>
+
 
 
 </body>
