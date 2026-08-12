@@ -1148,3 +1148,36 @@ button {
         padding: 25px 20px;
     }
 }
+/* =========================================================
+   AI FOOD IMAGE UPLOAD
+========================================================= */
+
+.upload-section form {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+.upload-section .analyze-btn {
+    min-width: 150px;
+}
+
+
+@media (max-width: 600px) {
+
+    .upload-section form {
+        flex-direction: column;
+    }
+
+    .upload-section .analyze-btn {
+        width: 100%;
+        max-width: 350px;
+    }
+
+}
