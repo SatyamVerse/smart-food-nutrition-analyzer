@@ -5,13 +5,17 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>{{ food.name }} Nutrition</title>
+    <title>NutriScan - Food Analysis</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
 
 </head>
 
@@ -19,9 +23,9 @@
 <body>
 
 
-    <!-- ==============================
+    <!-- =====================================================
          NAVBAR
-    =============================== -->
+    ====================================================== -->
 
     <nav class="navbar">
 
@@ -32,7 +36,9 @@
         <ul class="nav-links">
 
             <li>
-                <a href="/">Home</a>
+                <a href="/">
+                    Home
+                </a>
             </li>
 
         </ul>
@@ -40,212 +46,437 @@
     </nav>
 
 
-
-    <!-- ==============================
-         HERO / RESULT SECTION
-    =============================== -->
+    <!-- =====================================================
+         MAIN RESULT
+    ====================================================== -->
 
     <section class="hero">
 
         <div class="hero-content">
 
 
-            <!-- FOOD NAME -->
+            <!-- =================================================
+                 SUCCESSFUL RESULT
+            ================================================== -->
 
-            <h1>
-                {{ food.name }}
-            </h1>
+            {% if success %}
+
+                <h1>
+                    {{ detected_food }}
+                </h1>
+
+                <p>
+
+                    🤖 AI detected this food with
+
+                    <strong>
+                        {{ confidence }}%
+                    </strong>
+
+                    confidence.
+
+                </p>
 
 
-            <p>
-                Serving: {{ food.serving }}
-            </p>
+                <!-- =============================================
+                     AI CONFIDENCE
+                ============================================== -->
 
+                <div class="score-card">
 
-
-            <!-- ==============================
-                 NUTRITION SCORE
-            =============================== -->
-
-            <div class="score-card">
-
-                <div class="score-icon">
-                    ⭐
-                </div>
-
-                <div class="score-content">
-
-                    <h2>
-                        Nutrition Score
-                    </h2>
-
-                    <div class="score-number">
-                        {{ nutrition_score }}/100
+                    <div class="score-icon">
+                        🤖
                     </div>
 
-                    <p class="score-label">
-                        {{ score_label }}
-                    </p>
+                    <div class="score-content">
 
-                </div>
+                        <h2>
+                            AI Recognition
+                        </h2>
 
-            </div>
+                        <div class="score-number">
+                            {{ confidence }}%
+                        </div>
 
+                        <p class="score-label">
+                            Detection confidence
+                        </p>
 
-
-            <!-- ==============================
-                 NUTRITION INFORMATION
-            =============================== -->
-
-            <div class="feature-container">
-
-
-                <!-- CALORIES -->
-
-                <div class="feature-card">
-
-                    <div>🔥</div>
-
-                    <h3>
-                        Calories
-                    </h3>
-
-                    <p>
-                        {{ food.calories }} kcal
-                    </p>
+                    </div>
 
                 </div>
 
 
+                <!-- =============================================
+                     NUTRITION SCORE
+                ============================================== -->
 
-                <!-- PROTEIN -->
+                <div class="score-card">
 
-                <div class="feature-card">
+                    <div class="score-icon">
+                        ⭐
+                    </div>
 
-                    <div>💪</div>
+                    <div class="score-content">
 
-                    <h3>
-                        Protein
-                    </h3>
+                        <h2>
+                            Nutrition Score
+                        </h2>
 
-                    <p>
-                        {{ food.protein }} g
-                    </p>
+                        <div class="score-number">
+                            {{ nutrition_score }}/100
+                        </div>
 
-                </div>
+                        <p class="score-label">
+                            {{ score_label }}
+                        </p>
 
-
-
-                <!-- CARBOHYDRATES -->
-
-                <div class="feature-card">
-
-                    <div>🍞</div>
-
-                    <h3>
-                        Carbohydrates
-                    </h3>
-
-                    <p>
-                        {{ food.carbohydrates }} g
-                    </p>
+                    </div>
 
                 </div>
 
 
+                <!-- =============================================
+                     NUTRITION DATA
+                ============================================== -->
 
-                <!-- FAT -->
+                <div class="feature-container">
 
-                <div class="feature-card">
 
-                    <div>🥑</div>
+                    <!-- Calories -->
 
-                    <h3>
-                        Fat
-                    </h3>
+                    <div class="feature-card">
 
-                    <p>
-                        {{ food.fat }} g
-                    </p>
+                        <div>
+                            🔥
+                        </div>
+
+                        <h3>
+                            Calories
+                        </h3>
+
+                        <p>
+                            {{ food.calories }} kcal
+                        </p>
+
+                    </div>
+
+
+                    <!-- Protein -->
+
+                    <div class="feature-card">
+
+                        <div>
+                            💪
+                        </div>
+
+                        <h3>
+                            Protein
+                        </h3>
+
+                        <p>
+                            {{ food.protein }} g
+                        </p>
+
+                    </div>
+
+
+                    <!-- Carbohydrates -->
+
+                    <div class="feature-card">
+
+                        <div>
+                            🍞
+                        </div>
+
+                        <h3>
+                            Carbohydrates
+                        </h3>
+
+                        <p>
+                            {{ food.carbohydrates }} g
+                        </p>
+
+                    </div>
+
+
+                    <!-- Fat -->
+
+                    <div class="feature-card">
+
+                        <div>
+                            🥑
+                        </div>
+
+                        <h3>
+                            Fat
+                        </h3>
+
+                        <p>
+                            {{ food.fat }} g
+                        </p>
+
+                    </div>
+
+
+                    <!-- Fiber -->
+
+                    <div class="feature-card">
+
+                        <div>
+                            🌾
+                        </div>
+
+                        <h3>
+                            Fiber
+                        </h3>
+
+                        <p>
+                            {{ food.fiber }} g
+                        </p>
+
+                    </div>
+
+
+                    <!-- Sugar -->
+
+                    <div class="feature-card">
+
+                        <div>
+                            🍬
+                        </div>
+
+                        <h3>
+                            Sugar
+                        </h3>
+
+                        <p>
+                            {{ food.sugar }} g
+                        </p>
+
+                    </div>
+
+
+                    <!-- Sodium -->
+
+                    <div class="feature-card">
+
+                        <div>
+                            🧂
+                        </div>
+
+                        <h3>
+                            Sodium
+                        </h3>
+
+                        <p>
+                            {{ food.sodium }} mg
+                        </p>
+
+                    </div>
+
 
                 </div>
 
 
+                <!-- =============================================
+                     TOP PREDICTIONS
+                ============================================== -->
 
-                <!-- FIBER -->
+                {% if predictions %}
 
-                <div class="feature-card">
+                    <div class="insights-section">
 
-                    <div>🌾</div>
+                        <h2>
+                            🤖 AI Recognition Details
+                        </h2>
 
-                    <h3>
-                        Fiber
-                    </h3>
+                        {% for prediction in predictions %}
 
-                    <p>
-                        {{ food.fiber }} g
-                    </p>
+                            <div class="insight">
+
+                                <span>
+                                    {{ loop.index }}
+                                </span>
+
+                                <p>
+
+                                    {{ prediction.name }}
+
+                                    —
+
+                                    {{ prediction.confidence }}%
+
+                                </p>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+
+                <!-- =============================================
+                     ANALYZE AGAIN
+                ============================================== -->
+
+                <div class="result-actions">
+
+                    <a
+                        href="/"
+                        class="analyze-again"
+                    >
+                        📷 Analyze Another Photo
+                    </a>
 
                 </div>
 
 
+            <!-- =================================================
+                 UNCERTAIN RESULT
+            ================================================== -->
 
-                <!-- SUGAR -->
+            {% elif uncertain %}
 
-                <div class="feature-card">
 
-                    <div>🍬</div>
+                <h1>
+                    🤔 Not Confident Enough
+                </h1>
 
-                    <h3>
-                        Sugar
-                    </h3>
 
-                    <p>
-                        {{ food.sugar }} g
-                    </p>
+                <p>
+
+                    The AI could not identify the food
+                    reliably enough to provide nutrition
+                    information.
+
+                </p>
+
+
+                <!-- Warning -->
+
+                <div class="score-card">
+
+                    <div class="score-icon">
+                        ⚠️
+                    </div>
+
+                    <div class="score-content">
+
+                        <h2>
+                            Possible Match
+                        </h2>
+
+                        <div class="score-number">
+                            {{ detected_food }}
+                        </div>
+
+                        <p class="score-label">
+                            {{ confidence }}% confidence
+                        </p>
+
+                    </div>
 
                 </div>
 
 
+                <!-- Top predictions -->
 
-                <!-- SODIUM -->
+                {% if alternatives %}
 
-                <div class="feature-card">
+                    <div class="insights-section">
 
-                    <div>🧂</div>
+                        <h2>
+                            Possible Matches
+                        </h2>
 
-                    <h3>
-                        Sodium
-                    </h3>
 
-                    <p>
-                        {{ food.sodium }} mg
-                    </p>
+                        {% for prediction in alternatives %}
+
+                            <div class="insight">
+
+                                <span>
+                                    {{ loop.index }}
+                                </span>
+
+                                <p>
+
+                                    <strong>
+                                        {{ prediction.name }}
+                                    </strong>
+
+                                    —
+
+                                    {{ prediction.confidence }}%
+
+                                </p>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% endif %}
+
+
+                <p>
+
+                    Try uploading a clearer photo with
+                    only one food item visible.
+
+                </p>
+
+
+                <div class="result-actions">
+
+                    <a
+                        href="/"
+                        class="analyze-again"
+                    >
+                        📷 Try Another Photo
+                    </a>
 
                 </div>
 
 
-            </div>
+            <!-- =================================================
+                 ERROR
+            ================================================== -->
+
+            {% else %}
 
 
+                <h1>
+                    ⚠️ Unable to Analyze
+                </h1>
 
-            <!-- ==============================
-                 ANALYZE ANOTHER FOOD
-            =============================== -->
 
-            <div class="result-actions">
+                <p>
+                    {{ error }}
+                </p>
 
-                <a href="/" class="analyze-again">
-                    🔍 Analyze Another Food
-                </a>
 
-            </div>
+                <div class="result-actions">
+
+                    <a
+                        href="/"
+                        class="analyze-again"
+                    >
+                        🔍 Try Again
+                    </a>
+
+                </div>
+
+
+            {% endif %}
 
 
         </div>
 
     </section>
-
 
 
 </body>
