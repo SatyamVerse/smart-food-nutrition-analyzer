@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request
 import json
+from PIL import Image
+from transformers import pipeline
+import os
 
 app = Flask(__name__)
 
@@ -13,16 +16,26 @@ with open("data/foods.json", "r") as file:
 
 
 # ==========================================
+# AI FOOD IMAGE CLASSIFIER
+# ==========================================
+
+print("Loading food recognition model...")
+
+food_classifier = pipeline(
+    "image-classification",
+    model="nateraw/food"
+)
+
+print("Food recognition model loaded!")
+
+
+# ==========================================
 # CALCULATE NUTRITION SCORE
 # ==========================================
 
 def calculate_nutrition_score(food):
 
     score = 50
-
-    # --------------------------------------
-    # Positive factors
-    # --------------------------------------
 
     # Protein
     protein = food.get("protein", 0)
@@ -43,10 +56,6 @@ def calculate_nutrition_score(food):
         score += 10
     elif fiber >= 3:
         score += 5
-
-    # --------------------------------------
-    # Negative factors
-    # --------------------------------------
 
     # Sugar
     sugar = food.get("sugar", 0)
@@ -84,17 +93,13 @@ def calculate_nutrition_score(food):
     elif calories > 350:
         score -= 5
 
-    # --------------------------------------
-    # Keep score between 0 and 100
-    # --------------------------------------
-
     score = max(0, min(100, score))
 
     return score
 
 
 # ==========================================
-# GET SCORE LABEL
+# SCORE LABEL
 # ==========================================
 
 def get_score_label(score):
@@ -113,6 +118,32 @@ def get_score_label(score):
 
 
 # ==========================================
+# FIND FOOD IN DATABASE
+# ==========================================
+
+def find_food(food_label):
+
+    food_label = food_label.lower()
+
+    # Direct match
+    if food_label in foods:
+        return foods[food_label]
+
+    # Search inside food names
+    for key, food in foods.items():
+
+        database_name = food.get("name", "").lower()
+
+        if food_label in database_name:
+            return food
+
+        if database_name in food_label:
+            return food
+
+    return None
+
+
+# ==========================================
 # HOME PAGE
 # ==========================================
 
@@ -123,43 +154,115 @@ def home():
 
 
 # ==========================================
-# ANALYZE FOOD
+# TEXT FOOD ANALYSIS
 # ==========================================
 
 @app.route("/analyze", methods=["POST"])
 def analyze():
 
-    # Get food entered by user
     food_name = request.form.get("food")
 
-    # Check empty input
     if not food_name:
         return "Please enter a food name."
 
-    # Clean input
     food_name = food_name.lower().strip()
 
-    # Search food database
     food = foods.get(food_name)
 
-    # Food not found
     if not food:
         return "Food not found. Please try another food."
 
-    # Calculate nutrition score
     nutrition_score = calculate_nutrition_score(food)
 
-    # Get score label
     score_label = get_score_label(nutrition_score)
 
-    # Send everything to result.html
     return render_template(
         "result.html",
         food=food,
         food_name=food_name,
         nutrition_score=nutrition_score,
-        score_label=score_label
+        score_label=score_label,
+        detected_food=food.get("name")
     )
+
+
+# ==========================================
+# IMAGE FOOD ANALYSIS
+# ==========================================
+
+@app.route("/upload", methods=["POST"])
+def upload():
+
+    image = request.files.get("food_image")
+
+    # Check image
+    if not image:
+
+        return "Please upload a food image."
+
+    if image.filename == "":
+
+        return "Please select an image."
+
+
+    try:
+
+        # Open uploaded image
+        img = Image.open(image)
+
+        # Convert image to RGB
+        img = img.convert("RGB")
+
+
+        # AI prediction
+        predictions = food_classifier(
+            img,
+            top_k=5
+        )
+
+
+        # Get highest prediction
+        detected_label = predictions[0]["label"]
+
+        confidence = predictions[0]["score"] * 100
+
+
+        # Find matching food in our database
+        food = find_food(detected_label)
+
+
+        # If detected food isn't in database
+        if not food:
+
+            return render_template(
+                "upload_result.html",
+                detected_food=detected_label,
+                confidence=round(confidence, 2),
+                found=False
+            )
+
+
+        # Calculate nutrition score
+        nutrition_score = calculate_nutrition_score(food)
+
+        score_label = get_score_label(nutrition_score)
+
+
+        # Show result
+        return render_template(
+            "upload_result.html",
+            food=food,
+            detected_food=food.get("name"),
+            confidence=round(confidence, 2),
+            nutrition_score=nutrition_score,
+            score_label=score_label,
+            found=True
+        )
+
+
+    except Exception as e:
+
+        return f"Error processing image: {str(e)}"
 
 
 # ==========================================
@@ -167,4 +270,5 @@ def analyze():
 # ==========================================
 
 if __name__ == "__main__":
+
     app.run(debug=True)
