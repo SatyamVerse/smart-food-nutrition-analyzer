@@ -1,12 +1,12 @@
-/* ======================================
+/* =========================================================
    SMART FOOD NUTRITION ANALYZER
-   MAIN WEBSITE CSS
-====================================== */
+   Complete Main CSS
+   ========================================================= */
 
 
-/* ======================================
+/* =========================================================
    1. GLOBAL RESET
-====================================== */
+   ========================================================= */
 
 * {
     margin: 0;
@@ -25,10 +25,19 @@ body {
     line-height: 1.6;
 }
 
+a {
+    text-decoration: none;
+}
 
-/* ======================================
+button,
+input {
+    font-family: inherit;
+}
+
+
+/* =========================================================
    2. NAVBAR
-====================================== */
+   ========================================================= */
 
 .navbar {
     width: 100%;
@@ -46,6 +55,7 @@ body {
 
     position: sticky;
     top: 0;
+
     z-index: 1000;
 }
 
@@ -73,12 +83,7 @@ body {
     list-style: none;
 }
 
-
-/* Navigation links */
-
 .nav-links a {
-    text-decoration: none;
-
     color: #374151;
 
     font-size: 15px;
@@ -87,20 +92,17 @@ body {
     transition: 0.3s ease;
 }
 
-
-/* Navigation hover */
-
 .nav-links a:hover {
     color: #16a34a;
 }
 
 
-/* ======================================
+/* =========================================================
    3. HERO SECTION
-====================================== */
+   ========================================================= */
 
 .hero {
-    min-height: 85vh;
+    min-height: calc(100vh - 75px);
 
     display: flex;
     align-items: center;
@@ -116,13 +118,17 @@ body {
             rgba(34, 197, 94, 0.12),
             transparent 35%
         ),
+        radial-gradient(
+            circle at bottom left,
+            rgba(74, 222, 128, 0.08),
+            transparent 30%
+        ),
         #f5fff8;
 }
 
-
 .hero-content {
     width: 100%;
-    max-width: 900px;
+    max-width: 1000px;
 }
 
 
@@ -153,22 +159,15 @@ body {
 /* Main heading */
 
 .hero h1 {
-    font-size: 64px;
+    font-size: 58px;
 
-    line-height: 1.08;
+    line-height: 1.1;
 
     letter-spacing: -2px;
 
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 
     color: #111827;
-}
-
-
-/* Green heading text */
-
-.hero h1 span {
-    color: #16a34a;
 }
 
 
@@ -177,17 +176,17 @@ body {
 .hero p {
     max-width: 700px;
 
-    margin: 0 auto 40px;
+    margin: 0 auto 35px;
 
-    font-size: 19px;
+    font-size: 18px;
 
     color: #6b7280;
 }
 
 
-/* ======================================
+/* =========================================================
    4. SEARCH BOX
-====================================== */
+   ========================================================= */
 
 .search-box {
     width: 100%;
@@ -207,6 +206,15 @@ body {
 
     box-shadow:
         0 15px 40px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #86efac;
+
+    box-shadow:
+        0 15px 45px rgba(22, 163, 74, 0.12);
 }
 
 
@@ -230,9 +238,6 @@ body {
     font-size: 16px;
 }
 
-
-/* Input placeholder */
-
 .search-box input::placeholder {
     color: #9ca3af;
 }
@@ -241,7 +246,7 @@ body {
 /* Analyze button */
 
 .analyze-btn {
-    padding: 16px 25px;
+    padding: 16px 26px;
 
     border: none;
 
@@ -260,29 +265,23 @@ body {
     transition: 0.3s ease;
 }
 
-
-/* Analyze hover */
-
 .analyze-btn:hover {
     background: #15803d;
 
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 
     box-shadow:
         0 8px 20px rgba(22, 163, 74, 0.25);
 }
 
 
-/* ======================================
-   5. IMAGE UPLOAD
-====================================== */
+/* =========================================================
+   5. UPLOAD SECTION
+   ========================================================= */
 
 .upload-section {
     margin-top: 28px;
 }
-
-
-/* Upload button */
 
 .upload-btn {
     display: inline-flex;
@@ -311,9 +310,6 @@ body {
     transition: 0.3s ease;
 }
 
-
-/* Upload hover */
-
 .upload-btn:hover {
     background: #f0fdf4;
 
@@ -322,17 +318,14 @@ body {
     transform: translateY(-2px);
 }
 
-
-/* Hide file input */
-
 .upload-btn input {
     display: none;
 }
 
 
-/* ======================================
+/* =========================================================
    6. FEATURES SECTION
-====================================== */
+   ========================================================= */
 
 .features {
     padding: 90px 8%;
@@ -341,9 +334,6 @@ body {
 
     text-align: center;
 }
-
-
-/* Section heading */
 
 .features h2 {
     margin-bottom: 45px;
@@ -356,7 +346,9 @@ body {
 }
 
 
-/* Cards container */
+/* =========================================================
+   7. FEATURE CARDS
+   ========================================================= */
 
 .feature-container {
     display: flex;
@@ -366,28 +358,25 @@ body {
 
     flex-wrap: wrap;
 
-    gap: 25px;
+    gap: 20px;
 }
 
-
-/* Feature card */
-
 .feature-card {
-    width: 250px;
+    width: 240px;
 
-    padding: 32px 25px;
+    padding: 28px 22px;
 
-    background: #f9fafb;
+    background: #ffffff;
 
     border: 1px solid #e5e7eb;
 
     border-radius: 18px;
 
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.03);
 }
-
-
-/* Feature card hover */
 
 .feature-card:hover {
     transform: translateY(-8px);
@@ -407,39 +396,503 @@ body {
     margin-bottom: 15px;
 }
 
-
-/* Feature title */
-
 .feature-card h3 {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 
-    font-size: 20px;
+    font-size: 18px;
 
     color: #111827;
 }
 
-
-/* Feature description */
-
 .feature-card p {
-    font-size: 14px;
+    font-size: 15px;
 
     color: #6b7280;
 }
 
 
-/* =========================================
-   7. GENERAL BUTTON
-========================================= */
+/* =========================================================
+   8. RESULT PAGE
+   ========================================================= */
+
+.result-page {
+    min-height: calc(100vh - 75px);
+
+    padding: 70px 20px;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(34, 197, 94, 0.10),
+            transparent 35%
+        ),
+        #f5fff8;
+}
+
+.result-container {
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   9. RESULT HEADER
+   ========================================================= */
+
+.food-header {
+    margin-bottom: 35px;
+}
+
+.food-icon {
+    font-size: 55px;
+
+    margin-bottom: 10px;
+}
+
+.food-header h1 {
+    font-size: 48px;
+
+    line-height: 1.1;
+
+    color: #111827;
+
+    margin-bottom: 8px;
+}
+
+.food-header p {
+    color: #6b7280;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   10. CALORIE CARD
+   ========================================================= */
+
+.calorie-card {
+    max-width: 450px;
+
+    margin: 0 auto 35px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.calorie-icon {
+    font-size: 45px;
+}
+
+.calorie-card span {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.calorie-card strong {
+    font-size: 38px;
+
+    color: #16a34a;
+
+    margin-right: 5px;
+}
+
+.calorie-card small {
+    color: #6b7280;
+
+    font-size: 16px;
+}
+
+
+/* =========================================================
+   11. NUTRITION GRID
+   ========================================================= */
+
+.nutrition-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 45px;
+}
+
+.nutrition-card {
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    transition: 0.3s ease;
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.03);
+}
+
+.nutrition-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #bbf7d0;
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.nutrition-icon {
+    font-size: 32px;
+
+    margin-bottom: 10px;
+}
+
+.nutrition-card h3 {
+    font-size: 16px;
+
+    color: #374151;
+
+    margin-bottom: 8px;
+}
+
+.nutrition-card strong {
+    font-size: 24px;
+
+    color: #16a34a;
+}
+
+
+/* =========================================================
+   12. NUTRITION SCORE CARD
+   ========================================================= */
+
+.score-card {
+    width: 100%;
+
+    max-width: 520px;
+
+    margin: 35px auto 45px;
+
+    padding: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.07);
+
+    transition: all 0.3s ease;
+}
+
+.score-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #bbf7d0;
+
+    box-shadow:
+        0 20px 45px rgba(22, 163, 74, 0.10);
+}
+
+
+/* Score icon */
+
+.score-icon {
+    width: 85px;
+    height: 85px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f0fdf4;
+
+    border: 8px solid #dcfce7;
+
+    font-size: 40px;
+}
+
+
+/* Score content */
+
+.score-content {
+    text-align: left;
+}
+
+.score-content h2 {
+    margin-bottom: 5px;
+
+    font-size: 20px;
+
+    color: #374151;
+}
+
+.score-number {
+    font-size: 44px;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    color: #16a34a;
+}
+
+.score-label {
+    margin: 6px 0 0 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 700;
+
+    color: #15803d !important;
+}
+
+
+/* =========================================================
+   13. SCORE CIRCLE
+   ========================================================= */
+
+.score-section {
+    padding: 45px 20px;
+
+    margin-bottom: 40px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.score-section h2 {
+    margin-bottom: 25px;
+
+    font-size: 28px;
+
+    color: #111827;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    border-radius: 50%;
+
+    border: 10px solid #86efac;
+
+    background: #f0fdf4;
+}
+
+.score-circle span {
+    font-size: 42px;
+
+    font-weight: 800;
+
+    color: #16a34a;
+}
+
+.score-circle small {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.score-section p {
+    color: #6b7280;
+}
+
+
+/* =========================================================
+   14. HEALTH INSIGHTS
+   ========================================================= */
+
+.insights-section {
+    text-align: left;
+
+    padding: 30px;
+
+    margin-bottom: 35px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5e7eb;
+}
+
+.insights-section h2 {
+    margin-bottom: 20px;
+
+    color: #111827;
+}
+
+.insight {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.insight:last-child {
+    border-bottom: none;
+}
+
+.insight span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-weight: bold;
+}
+
+.insight p {
+    color: #4b5563;
+}
+
+
+/* =========================================================
+   15. ANALYZE ANOTHER FOOD
+   ========================================================= */
+
+.result-actions {
+    margin-top: 20px;
+
+    text-align: center;
+}
+
+.analyze-again {
+    display: inline-block;
+
+    padding: 14px 26px;
+
+    background: #16a34a;
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+.analyze-again:hover {
+    background: #15803d;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(22, 163, 74, 0.25);
+}
+
+
+/* =========================================================
+   16. BACK BUTTON
+   ========================================================= */
+
+.back-button {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    background: #16a34a;
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background: #15803d;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   17. GENERAL BUTTON
+   ========================================================= */
 
 button {
     font-family: inherit;
 }
 
 
-/* =========================================
-   8. SELECTION
-========================================= */
+/* =========================================================
+   18. TEXT SELECTION
+   ========================================================= */
 
 ::selection {
     background: #bbf7d0;
@@ -448,9 +901,9 @@ button {
 }
 
 
-/* =========================================
-   9. SCROLLBAR
-========================================= */
+/* =========================================================
+   19. SCROLLBAR
+   ========================================================= */
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -471,9 +924,9 @@ button {
 }
 
 
-/* =========================================
-   10. TABLET RESPONSIVE
-========================================= */
+/* =========================================================
+   20. TABLET
+   ========================================================= */
 
 @media (max-width: 900px) {
 
@@ -488,12 +941,16 @@ button {
     .features {
         padding: 70px 5%;
     }
+
+    .nutrition-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 
-/* =========================================
-   11. MOBILE RESPONSIVE
-========================================= */
+/* =========================================================
+   21. MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
 
@@ -502,7 +959,6 @@ button {
     .navbar {
         padding: 18px 20px;
     }
-
 
     .nav-links {
         display: none;
@@ -517,13 +973,11 @@ button {
         padding: 70px 20px;
     }
 
-
     .hero h1 {
         font-size: 40px;
 
         letter-spacing: -1px;
     }
-
 
     .hero p {
         font-size: 16px;
@@ -542,15 +996,20 @@ button {
         padding: 8px;
     }
 
-
     .search-box input {
         width: 100%;
 
         padding: 15px;
     }
 
-
     .analyze-btn {
+        width: 100%;
+    }
+
+
+    /* Upload */
+
+    .upload-btn {
         width: 100%;
     }
 
@@ -561,13 +1020,91 @@ button {
         padding: 60px 20px;
     }
 
-
     .features h2 {
         font-size: 30px;
     }
 
-
     .feature-card {
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+
+    /* Result */
+
+    .result-page {
+        padding: 50px 20px;
+    }
+
+    .food-header h1 {
+        font-size: 38px;
+    }
+
+
+    /* Nutrition */
+
+    .nutrition-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nutrition-card {
+        width: 100%;
+    }
+
+
+    /* Calories */
+
+    .calorie-card {
+        width: 100%;
+    }
+
+
+    /* Score */
+
+    .score-card {
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 28px 20px;
+    }
+
+    .score-content {
+        text-align: center;
+    }
+
+    .score-number {
+        font-size: 38px;
+    }
+
+    .score-icon {
+        width: 75px;
+        height: 75px;
+
+        font-size: 36px;
+    }
+
+    .score-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .score-circle span {
+        font-size: 36px;
+    }
+
+
+    /* Insights */
+
+    .insights-section {
+        padding: 22px;
+    }
+
+
+    /* Button */
+
+    .analyze-again {
         width: 100%;
 
         max-width: 350px;
@@ -575,9 +1112,9 @@ button {
 }
 
 
-/* =========================================
-   12. SMALL MOBILE
-========================================= */
+/* =========================================================
+   22. SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 480px) {
 
@@ -585,11 +1122,9 @@ button {
         font-size: 21px;
     }
 
-
     .hero h1 {
         font-size: 34px;
     }
-
 
     .hero-content::before {
         font-size: 10px;
@@ -597,395 +1132,19 @@ button {
         padding: 7px 12px;
     }
 
-
-    .upload-btn {
-        width: 100%;
-    }
-}
-/* =========================================
-   NUTRITION RESULT PAGE
-========================================= */
-
-.result-page {
-    min-height: calc(100vh - 75px);
-
-    padding: 70px 20px;
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(34, 197, 94, 0.10),
-            transparent 35%
-        ),
-        #f5fff8;
-}
-
-
-.result-container {
-    width: 100%;
-
-    max-width: 950px;
-
-    margin: auto;
-
-    text-align: center;
-}
-
-
-/* =========================================
-   FOOD HEADER
-========================================= */
-
-.food-header {
-    margin-bottom: 35px;
-}
-
-
-.food-icon {
-    font-size: 55px;
-
-    margin-bottom: 10px;
-}
-
-
-.food-header h1 {
-    font-size: 48px;
-
-    color: #111827;
-
-    margin-bottom: 8px;
-}
-
-
-.food-header p {
-    color: #6b7280;
-
-    font-size: 17px;
-}
-
-
-/* =========================================
-   CALORIE CARD
-========================================= */
-
-.calorie-card {
-    max-width: 450px;
-
-    margin: 0 auto 35px;
-
-    padding: 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 18px;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-
-.calorie-icon {
-    font-size: 45px;
-}
-
-
-.calorie-card span {
-    display: block;
-
-    color: #6b7280;
-
-    font-size: 14px;
-}
-
-
-.calorie-card strong {
-    font-size: 38px;
-
-    color: #16a34a;
-
-    margin-right: 5px;
-}
-
-
-.calorie-card small {
-    color: #6b7280;
-
-    font-size: 16px;
-}
-
-
-/* =========================================
-   NUTRITION GRID
-========================================= */
-
-.nutrition-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 20px;
-
-    margin-bottom: 50px;
-}
-
-
-.nutrition-card {
-    padding: 25px;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 16px;
-
-    transition: 0.3s ease;
-}
-
-
-.nutrition-card:hover {
-    transform: translateY(-5px);
-
-    border-color: #bbf7d0;
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.07);
-}
-
-
-.nutrition-icon {
-    font-size: 32px;
-
-    margin-bottom: 10px;
-}
-
-
-.nutrition-card h3 {
-    font-size: 16px;
-
-    color: #374151;
-
-    margin-bottom: 8px;
-}
-
-
-.nutrition-card strong {
-    font-size: 24px;
-
-    color: #16a34a;
-}
-
-
-/* =========================================
-   NUTRITION SCORE
-========================================= */
-
-.score-section {
-    padding: 45px 20px;
-
-    margin-bottom: 40px;
-
-    background: #ffffff;
-
-    border-radius: 20px;
-
-    border: 1px solid #e5e7eb;
-}
-
-
-.score-section h2 {
-    margin-bottom: 25px;
-
-    font-size: 28px;
-
-    color: #111827;
-}
-
-
-.score-circle {
-    width: 150px;
-
-    height: 150px;
-
-    margin: 0 auto 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-direction: column;
-
-    border-radius: 50%;
-
-    border: 10px solid #86efac;
-
-    background: #f0fdf4;
-}
-
-
-.score-circle span {
-    font-size: 42px;
-
-    font-weight: 800;
-
-    color: #16a34a;
-}
-
-
-.score-circle small {
-    color: #6b7280;
-
-    font-size: 14px;
-}
-
-
-.score-section p {
-    color: #6b7280;
-}
-
-
-/* =========================================
-   HEALTH INSIGHTS
-========================================= */
-
-.insights-section {
-    text-align: left;
-
-    padding: 30px;
-
-    margin-bottom: 35px;
-
-    background: #ffffff;
-
-    border-radius: 18px;
-
-    border: 1px solid #e5e7eb;
-}
-
-
-.insights-section h2 {
-    margin-bottom: 20px;
-
-    color: #111827;
-}
-
-
-.insight {
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 12px 0;
-
-    border-bottom: 1px solid #f3f4f6;
-}
-
-
-.insight:last-child {
-    border-bottom: none;
-}
-
-
-.insight span {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 25px;
-
-    height: 25px;
-
-    border-radius: 50%;
-
-    background: #dcfce7;
-
-    color: #15803d;
-
-    font-weight: bold;
-}
-
-
-.insight p {
-    color: #4b5563;
-}
-
-
-/* =========================================
-   BACK BUTTON
-========================================= */
-
-.back-button {
-    display: inline-block;
-
-    padding: 14px 25px;
-
-    background: #16a34a;
-
-    color: #ffffff;
-
-    text-decoration: none;
-
-    border-radius: 10px;
-
-    font-weight: 700;
-
-    transition: 0.3s ease;
-}
-
-
-.back-button:hover {
-    background: #15803d;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================
-   RESULT PAGE MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-
-    .result-page {
-        padding: 50px 20px;
-    }
-
-
     .food-header h1 {
-        font-size: 38px;
+        font-size: 34px;
     }
 
-
-    .nutrition-grid {
-        grid-template-columns: 1fr;
+    .score-card {
+        margin-top: 25px;
     }
 
-
-    .calorie-card {
-        width: 100%;
+    .score-number {
+        font-size: 34px;
     }
 
-
-    .score-circle {
-        width: 130px;
-
-        height: 130px;
+    .feature-card {
+        padding: 25px 20px;
     }
-
 }
