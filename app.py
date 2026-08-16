@@ -26,7 +26,7 @@ with open("data/foods.json", "r") as file:
 #
 # This prevents the model from choosing random foods that
 # do not exist in our nutrition database.
-# =========================================================
+# ========================================================
 
 FOOD_LABELS = {
     "apple": "apple",
